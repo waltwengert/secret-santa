@@ -11,12 +11,8 @@ const StyledHeader = styled.div`
     color: white;
 `;
 
-const Header = (props: { children: React.ReactNode; }) => {
-    return (
-        <StyledHeader>
-            {props.children}
-        </StyledHeader>
-    );
-}
+const Header = (props: { children: React.ReactNode }) => {
+    return <StyledHeader>{props.children}</StyledHeader>;
+};
 
 export default Header;

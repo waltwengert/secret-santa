@@ -1,7 +1,5 @@
 const Title = () => {
-    return (
-        <p>Secret Santa</p>
-    );
-}
+    return <p>Secret Santa</p>;
+};
 
 export default Title;
