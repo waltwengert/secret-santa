@@ -1,5 +1,3 @@
-const Title = () => {
+export function Title () {
     return <p>Secret Santa</p>;
-};
-
-export default Title;
+}

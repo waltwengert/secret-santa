@@ -10,7 +10,6 @@
         "@types/node": "^16.7.13",
         "@types/react": "^18.0.0",
         "@types/react-dom": "^18.0.0",
-        "husky": "^8.0.2",
         "lint-staged": "^13.0.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -23,7 +22,9 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "lint": "eslint src/**/*.js src/**/*.ts src/**/*.tsx",
+        "prepare": "husky install"
     },
     "eslintConfig": {
         "extends": [
@@ -55,22 +56,22 @@
         "eslint-plugin-n": "^15.0.0",
         "eslint-plugin-promise": "^6.0.0",
         "eslint-plugin-react": "^7.31.11",
+        "husky": "^8.0.0",
+        "lint-staged": "^13.0.4",
         "prettier": "2.8.0"
+    },
+    "lint-staged": {
+        "*.{js,jsx,ts,tsx}": [
+            "prettier --write",
+            "eslint --fix"
+        ],
+        "*.{html,css,less,ejs}": [
+            "prettier --write"
+        ]
     },
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
         }
-    },
-    "lint-staged": {
-        "*.{js,jsx,ts,tsx}": [
-            "prettier --write",
-            "eslint --fix",
-            "git add"
-        ],
-        "*.{html,css,less,ejs}": [
-            "prettier --write",
-            "git add"
-        ]
     }
 }

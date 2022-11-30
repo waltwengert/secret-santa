@@ -6,7 +6,7 @@ const StyledApp = styled.div`
     text-align: center;
 `;
 
-function App() {
+function App () {
     return (
         <StyledApp>
             <Header>

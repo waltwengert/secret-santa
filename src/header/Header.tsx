@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import React from 'react';
 
 const StyledHeader = styled.div`
     background-color: #282c34;
@@ -11,8 +12,10 @@ const StyledHeader = styled.div`
     color: white;
 `;
 
-const Header = (props: { children: React.ReactNode }) => {
-    return <StyledHeader>{props.children}</StyledHeader>;
-};
+interface HeaderProps {
+    children: React.ReactNode
+}
 
-export default Header;
+export function Header (props: HeaderProps) {
+    return <StyledHeader>{props.children}</StyledHeader>;
+}
