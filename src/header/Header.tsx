@@ -16,6 +16,6 @@ interface HeaderProps {
     children: React.ReactNode
 }
 
-export function Header (props: HeaderProps) {
+export function Header(props: HeaderProps) {
     return <StyledHeader>{props.children}</StyledHeader>;
 }

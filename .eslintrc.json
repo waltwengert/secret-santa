@@ -69,9 +69,17 @@
             "error", 
             {
                 "anonymous": "always",
-                "named": "always",
+                "named": "never",
                 "asyncArrow": "always"
             }
         ],
+        "@typescript-eslint/space-before-function-paren": [
+            "error", 
+            {
+                "anonymous": "always",
+                "named": "never",
+                "asyncArrow": "always"
+            }
+        ]
     }
 }
