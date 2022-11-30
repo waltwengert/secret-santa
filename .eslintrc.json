@@ -64,6 +64,14 @@
             }
         ],
         "import/no-duplicates": "error",
-        "quotes": [2, "single", { "avoidEscape": true }]
+        "quotes": [2, "single", { "avoidEscape": true }],
+        "space-before-function-paren": [
+            "error", 
+            {
+                "anonymous": "always",
+                "named": "always",
+                "asyncArrow": "always"
+            }
+        ],
     }
 }
