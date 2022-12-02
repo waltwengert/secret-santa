@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { Label } from '../lib/ui/Label';
+import React from 'react';
 
-const HeaderWrapper = styled.div`
+const StyledHeader = styled.div`
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
@@ -12,14 +12,14 @@ const HeaderWrapper = styled.div`
     color: white;
 `;
 
-export const HeaderTitle = () => {
-    return <Label>Secret Santa</Label>;
+export const Title = () => {
+    return <p>Secret Santa</p>;
 };
 
 export const Header = () => {
     return (
-        <HeaderWrapper>
-            <HeaderTitle />
-        </HeaderWrapper>
+        <StyledHeader>
+            <Title />
+        </StyledHeader>
     );
 };

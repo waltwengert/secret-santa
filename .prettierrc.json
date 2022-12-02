@@ -4,10 +4,7 @@
     "useTabs": false,
     "semi": true,
     "singleQuote": true,
-    "trailingComma": "es5",
     "bracketSpacing": true,
     "arrowParens": "avoid",
-
-    "quoteProps": "as-needed",
-    "endOfLine": "auto"
+    "trailingComma": "none"
 }
