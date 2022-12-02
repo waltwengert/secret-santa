@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import React from 'react';
 
-const StyledHeader = styled.div`
+const InputWrapper = styled.div`
     background-color: #282c34;
     min-height: 100vh;
     display: flex;
@@ -18,8 +17,8 @@ export const Title = () => {
 
 export const Header = () => {
     return (
-        <StyledHeader>
+        <InputWrapper>
             <Title />
-        </StyledHeader>
+        </InputWrapper>
     );
 };
