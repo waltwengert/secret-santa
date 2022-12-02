@@ -56,7 +56,7 @@
         "eslint-plugin-n": "^15.0.0",
         "eslint-plugin-promise": "^6.0.0",
         "eslint-plugin-react": "^7.31.11",
-        "husky": "^8.0.2",
+        "husky": "^8.0.0",
         "lint-staged": "^13.0.4",
         "prettier": "2.8.0",
         "react-test-renderer": "^18.2.0"
@@ -69,11 +69,5 @@
         "*.{html,css,less,ejs}": [
             "prettier --write"
         ]
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged",
-            "pre-push": "yarn test --watchAll=false"
-        }
     }
 }
