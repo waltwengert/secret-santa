@@ -15,6 +15,14 @@ const InputWrapper = styled.div`
 
     width: 100%;
     justify-content: center;
+
+    // The below prevents text from being selectable
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 `;
 
 const ParticipantInput = styled(BaseInput)`
