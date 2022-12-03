@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { BaseButton } from './lib/ui/Button';
 import { BaseCheckbox } from './lib/ui/Checkbox';
 import { BaseInput } from './lib/ui/Input';
+import { MOBILE_DEVICE_WIDTH } from './lib/APP_CONST';
 
 const InputWrapper = styled.div`
     background-color: #146b3a;
@@ -25,14 +26,26 @@ const EncryptedCheckbox = styled(BaseCheckbox)`
 `;
 
 const ButtonWrapper = styled.div`
+    justify-content: center;
+    display: flex;
+
+    width: 100%;
+`;
+
+const ButtonContainer = styled.div`
     background-color: #146b3a;
     color: white;
 
     display: flex;
     flex-direction: row;
 
-    width: 100%;
     justify-content: center;
+
+    width: 50vw;
+
+    @media (max-width: ${MOBILE_DEVICE_WIDTH}px) {
+        width: 95vw;
+    }
 `;
 
 const InputButton = styled(BaseButton)`
@@ -72,9 +85,11 @@ export const UserInput = () => {
                 />
             </InputWrapper>
             <ButtonWrapper>
-                <InputButton onClick={onAdd}>Add</InputButton>
-                <InputButton onClick={onShuffle}>Shuffle</InputButton>
-                <InputButton onClick={onReveal}>Reveal All</InputButton>
+                <ButtonContainer>
+                    <InputButton onClick={onAdd}>Add</InputButton>
+                    <InputButton onClick={onShuffle}>Shuffle</InputButton>
+                    <InputButton onClick={onReveal}>Reveal All</InputButton>
+                </ButtonContainer>
             </ButtonWrapper>
         </>
     );

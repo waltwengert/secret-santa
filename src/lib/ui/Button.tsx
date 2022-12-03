@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { MOBILE_DEVICE_WIDTH } from '../APP_CONST';
+
 export const BaseButton = styled.button`
     background-color: #000000;
     color: #ffffff;
@@ -14,11 +16,19 @@ export const BaseButton = styled.button`
 
     cursor: pointer;
 
-    &: hover {
-        filter: brightness(0.8);
-    }
-
     &: active {
         font-size: 16px;
     }
+
+    @media (max-width: ${MOBILE_DEVICE_WIDTH}px) {
+        width: 95vw;
+    }
+
+    // Media query for hover so the button doesn't look weird on touch devices
+    @media (hover: hover) {
+        &: hover {
+            filter: brightness(0.8);
+        }
+    }
+}
 `;
