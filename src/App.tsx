@@ -1,11 +1,13 @@
 import styled from 'styled-components';
-import { Header } from './header/Header';
-import { UserInput } from './input/UserInput';
+import { Header } from './Header';
+import { UserInput } from './UserInput';
 
-const StyledApp = styled.div`
-    text-align: center;
-    background-color: #282c34;
+const AppWrapper = styled.div`
+    min-width: 100vw;
     min-height: 100vh;
+
+    text-align: center;
+    background-color: #146b3a;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -13,10 +15,10 @@ const StyledApp = styled.div`
 
 const App = () => {
     return (
-        <StyledApp>
+        <AppWrapper>
             <Header />
             <UserInput />
-        </StyledApp>
+        </AppWrapper>
     );
 };
 

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { Label } from '../lib/ui/Label';
+import { Label } from './lib/ui/Label';
 
 const HeaderWrapper = styled.div`
-    background-color: #282c34;
+    background-color: #146b3a;
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
