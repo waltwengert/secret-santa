@@ -9,6 +9,8 @@ const HeaderWrapper = styled.div`
     justify-content: center;
     font-size: calc(40px + 2vmin);
 
+    margin-top: 30px;
+
     // The below prevents text from being selectable
     -webkit-touch-callout: none;
     -webkit-user-select: none;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledInput = styled.input`
+const StyledInput = styled.input`
     color: #ffffff;
 
     font-size: 18px;

@@ -38,6 +38,8 @@ const ButtonWrapper = styled.div`
     display: flex;
 
     width: 100%;
+
+    margin-top: 15px;
 `;
 
 const ButtonContainer = styled.div`
