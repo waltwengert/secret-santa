@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { BaseButton } from './lib/ui/Button';
-import { BaseCheckbox } from './lib/ui/Checkbox';
-import { BaseInput } from './lib/ui/Input';
-import { MOBILE_DEVICE_WIDTH } from './lib/APP_CONST';
+import { BaseButton } from '../lib/ui/Button';
+import { BaseCheckbox } from '../lib/ui/Checkbox';
+import { BaseInput } from '../lib/ui/Input';
+import { MOBILE_DEVICE_WIDTH } from '../lib/APP_CONST';
 
 const InputWrapper = styled.div`
     background-color: #146b3a;

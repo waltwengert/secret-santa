@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { Header } from './Header';
-import { UserInput } from './UserInput';
+import { Header } from './components/Header';
+import { UserInput } from './components/UserInput';
 
 const AppWrapper = styled.div`
     background-color: #146b3a;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { BaseLabel } from './lib/ui/Label';
+import { BaseLabel } from '../lib/ui/Label';
 
 const HeaderWrapper = styled.div`
     background-color: #146b3a;
