@@ -2,6 +2,6 @@ interface LabelProps {
     children: any
 }
 
-export const Label = ({ children }: LabelProps) => {
+export const BaseLabel = ({ children }: LabelProps) => {
     return <p>{children}</p>;
 };

@@ -1,21 +1,27 @@
 import styled from 'styled-components';
-import { Label } from './lib/ui/Label';
+
+import { BaseLabel } from './lib/ui/Label';
 
 const HeaderWrapper = styled.div`
     background-color: #146b3a;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-`;
+    color: #f8b229;
 
-export const HeaderTitle = () => {
-    return <Label>Secret Santa</Label>;
-};
+    justify-content: center;
+    font-size: calc(40px + 2vmin);
+
+    // The below prevents text from being selectable
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+`;
 
 export const Header = () => {
     return (
         <HeaderWrapper>
-            <HeaderTitle />
+            <BaseLabel>Secret Santa</BaseLabel>
         </HeaderWrapper>
     );
 };
