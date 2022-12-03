@@ -75,6 +75,13 @@
             }
         ],
         "import/no-duplicates": "error",
+        "import/order": [
+            "error",
+            {
+                "groups": [["builtin", "external"]],
+                "newlines-between": "always"
+            }
+        ],
         "quotes": [2, "single", { "avoidEscape": true }],
         "space-before-function-paren": [
             "error",
@@ -109,6 +116,8 @@
                 "args": "after-used",
                 "argsIgnorePattern": "^_"
             }
-        ]
+        ],
+        "react/self-closing-comp": "error",
+        "react/jsx-space-before-closing": "error"
     }
 }
