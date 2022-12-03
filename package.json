@@ -1,6 +1,7 @@
 {
     "name": "secret-santa",
     "version": "0.1.0",
+    "homepage": "https://waltwengert.github.io/secret-santa",
     "private": true,
     "dependencies": {
         "@testing-library/jest-dom": "^5.14.1",
@@ -11,6 +12,7 @@
         "@types/react": "^18.0.0",
         "@types/react-dom": "^18.0.0",
         "eslint-plugin-unused-imports": "^2.0.0",
+        "gh-pages": "^4.0.0",
         "lint-staged": "^13.0.4",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -25,7 +27,9 @@
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "lint": "eslint src/**/*.js src/**/*.ts src/**/*.tsx",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "predeploy": "yarn build",
+        "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": [
