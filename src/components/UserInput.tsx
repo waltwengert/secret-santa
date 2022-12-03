@@ -7,6 +7,8 @@ import { BaseInput } from '../lib/ui/Input';
 import { MOBILE_DEVICE_WIDTH } from '../lib/APP_CONST';
 
 const InputWrapper = styled.div`
+    flex: 0 1 auto;
+
     background-color: #146b3a;
     color: white;
 

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { BaseLabel } from '../lib/ui/Label';
 
 const HeaderWrapper = styled.div`
+    flex: 0 1 auto;
+
     background-color: #146b3a;
     color: #f8b229;
 

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { Header } from './components/Header';
+import { Results } from './components/Results';
 import { UserInput } from './components/UserInput';
 
 const AppWrapper = styled.div`
@@ -19,6 +20,7 @@ const App = () => {
         <AppWrapper>
             <Header />
             <UserInput />
+            <Results />
         </AppWrapper>
     );
 };
