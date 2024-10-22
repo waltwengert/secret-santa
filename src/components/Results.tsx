@@ -39,10 +39,8 @@ export const Results = ({
     revealed
 }: ResultsProps) => {
     useEffect(() => {
-        console.debug('Name list: ', nameList);
-        console.debug('Shuffled name list: ', shuffledNameList);
         console.debug('Revealed: ', revealed);
-    }, [nameList, shuffledNameList, revealed]);
+    }, [revealed]);
 
     const names = nameList.map(name => (
         <Name key={`name-${name}`}>{name}</Name>
