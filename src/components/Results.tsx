@@ -20,14 +20,23 @@ export const ResultsContainer = styled.div`
 
 interface ResultsProps {
     nameList: string[]
-    isEncrypted: boolean
+    shuffledNameList: string[]
+    encrypted: boolean
+    revealed: boolean
 }
 
-export const Results = ({ nameList, isEncrypted }: ResultsProps) => {
+export const Results = ({
+    nameList,
+    shuffledNameList,
+    encrypted,
+    revealed
+}: ResultsProps) => {
     useEffect(() => {
         console.debug('Name list: ', nameList);
-        console.debug('Encrypted: ', isEncrypted);
-    }, [nameList, isEncrypted]);
+        console.debug('Shuffled name list: ', shuffledNameList);
+        console.debug('Encrypted: ', encrypted);
+        console.debug('Revealed: ', revealed);
+    }, [nameList, shuffledNameList, encrypted, revealed]);
 
     return <ResultsContainer />;
 };

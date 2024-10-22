@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { BaseButton } from '../lib/ui/Button';
@@ -6,6 +6,7 @@ import { BaseCheckbox } from '../lib/ui/Checkbox';
 import { BaseInput } from '../lib/ui/Input';
 import { MOBILE_DEVICE_WIDTH } from '../lib/APP_CONST';
 import { Results } from './Results';
+import { shuffle } from '../utilities/utils';
 
 const InputWrapper = styled.div`
     flex: 0 1 auto;
@@ -65,27 +66,26 @@ const InputButton = styled(BaseButton)`
 `;
 
 export const UserInput = () => {
-    const [encrypted, setEncrypted] = useState(false);
     const [nameList, setNameList] = useState<string[]>([]);
+    const [shuffledNameList, setShuffledNameList] = useState<string[]>([]);
+    const [encrypted, setEncrypted] = useState(false);
+    const [revealed, setRevealed] = useState(false);
+
+    const onAdd = () => {
+        setNameList([...nameList]);
+        setShuffledNameList(shuffle([...nameList]));
+    };
+
+    const onShuffle = () => {
+        setShuffledNameList(shuffle([...nameList]));
+    };
 
     const onToggleEncrypted = () => {
         setEncrypted(!encrypted);
     };
 
-    useEffect(() => {
-        console.debug('Toggle encrypted to: ', encrypted);
-    }, [encrypted]);
-
-    const onAdd = () => {
-        setNameList([...nameList]);
-    };
-
-    const onShuffle = () => {
-        console.debug('Shuffle');
-    };
-
     const onReveal = () => {
-        console.debug('Reveal All');
+        setRevealed(!revealed);
     };
 
     return (
@@ -104,7 +104,12 @@ export const UserInput = () => {
                     <InputButton onClick={onReveal}>Reveal All</InputButton>
                 </ButtonContainer>
             </ButtonWrapper>
-            <Results nameList={nameList} isEncrypted={encrypted} />
+            <Results
+                nameList={nameList}
+                shuffledNameList={shuffledNameList}
+                encrypted={encrypted}
+                revealed={revealed}
+            />
         </>
     );
 };
