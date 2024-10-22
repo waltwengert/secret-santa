@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 import { Header } from './components/Header';
-import { Results } from './components/Results';
-import { UserInput } from './components/UserInput';
+import { InputAndResults } from './components/InputAndResults';
 
 const AppWrapper = styled.div`
     background-color: #146b3a;
@@ -19,8 +18,7 @@ const App = () => {
     return (
         <AppWrapper>
             <Header />
-            <UserInput />
-            <Results />
+            <InputAndResults />
         </AppWrapper>
     );
 };
