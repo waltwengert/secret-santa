@@ -24,7 +24,7 @@ export function shuffle<T>(array: T[]): T[] {
  * @param stringToEncrypt String to encrypt.
  * @returns Encrypted string.
  */
-export function encrypt(stringToEncrypt: string) {
+export function encrypt(stringToEncrypt: string): string {
     let encryptedParticipant = '';
     const cipherKey = 13;
 
@@ -46,4 +46,13 @@ export function encrypt(stringToEncrypt: string) {
     }
 
     return encryptedParticipant;
+}
+
+/**
+ * Takes an array of strings and encrypts them.
+ * @param arrayToEncrypt Array to encrypt.
+ * @returns Encrypted array.
+ */
+export function encryptStringArray(arrayToEncrypt: string[]): string[] {
+    return arrayToEncrypt.map(stringToEncrypt => encrypt(stringToEncrypt));
 }

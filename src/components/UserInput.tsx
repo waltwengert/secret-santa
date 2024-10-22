@@ -6,7 +6,7 @@ import { BaseCheckbox } from '../lib/ui/Checkbox';
 import { BaseInput } from '../lib/ui/Input';
 import { MOBILE_DEVICE_WIDTH } from '../lib/APP_CONST';
 import { Results } from './Results';
-import { shuffle } from '../utilities/utils';
+import { encryptStringArray, shuffle } from '../utilities/utils';
 
 const InputWrapper = styled.div`
     flex: 0 1 auto;
@@ -66,22 +66,31 @@ const InputButton = styled(BaseButton)`
 `;
 
 export const UserInput = () => {
-    const [nameList, setNameList] = useState<string[]>([]);
+    const [nameList, setNameList] = useState<string[]>(['a', 'b', 'c', 'd']);
     const [shuffledNameList, setShuffledNameList] = useState<string[]>([]);
     const [encrypted, setEncrypted] = useState(false);
     const [revealed, setRevealed] = useState(false);
 
     const onAdd = () => {
         setNameList([...nameList]);
-        setShuffledNameList(shuffle([...nameList]));
+        if (encrypted) {
+            setShuffledNameList(encryptStringArray(shuffle([...nameList])));
+        } else {
+            setShuffledNameList(shuffle([...nameList]));
+        }
     };
 
     const onShuffle = () => {
-        setShuffledNameList(shuffle([...nameList]));
+        if (encrypted) {
+            setShuffledNameList(encryptStringArray(shuffle([...nameList])));
+        } else {
+            setShuffledNameList(shuffle([...nameList]));
+        }
     };
 
     const onToggleEncrypted = () => {
         setEncrypted(!encrypted);
+        setShuffledNameList(encryptStringArray(shuffledNameList));
     };
 
     const onReveal = () => {
@@ -107,7 +116,6 @@ export const UserInput = () => {
             <Results
                 nameList={nameList}
                 shuffledNameList={shuffledNameList}
-                encrypted={encrypted}
                 revealed={revealed}
             />
         </>

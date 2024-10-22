@@ -30,22 +30,19 @@ const Name = styled.p`
 interface ResultsProps {
     nameList: string[]
     shuffledNameList: string[]
-    encrypted: boolean
     revealed: boolean
 }
 
 export const Results = ({
     nameList,
     shuffledNameList,
-    encrypted,
     revealed
 }: ResultsProps) => {
     useEffect(() => {
         console.debug('Name list: ', nameList);
         console.debug('Shuffled name list: ', shuffledNameList);
-        console.debug('Encrypted: ', encrypted);
         console.debug('Revealed: ', revealed);
-    }, [nameList, shuffledNameList, encrypted, revealed]);
+    }, [nameList, shuffledNameList, revealed]);
 
     const names = nameList.map(name => (
         <Name key={`name-${name}`}>{name}</Name>
