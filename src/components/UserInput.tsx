@@ -10,7 +10,6 @@ const InputWrapper = styled.div`
     flex: 0 1 auto;
 
     background-color: #146b3a;
-    color: white;
 
     display: flex;
     flex-direction: column;

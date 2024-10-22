@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 const StyledInput = styled.input`
-    color: #ffffff;
-
     font-size: 18px;
     padding-left: 10px;
     padding-top: 5px;
