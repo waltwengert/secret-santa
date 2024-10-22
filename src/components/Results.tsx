@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useEffect } from 'react';
 
 import { MOBILE_DEVICE_WIDTH } from '../lib/APP_CONST';
 
@@ -17,6 +18,16 @@ export const ResultsContainer = styled.div`
     }
 `;
 
-export const Results = () => {
+interface ResultsProps {
+    nameList: string[]
+    isEncrypted: boolean
+}
+
+export const Results = ({ nameList, isEncrypted }: ResultsProps) => {
+    useEffect(() => {
+        console.debug('Name list: ', nameList);
+        console.debug('Encrypted: ', isEncrypted);
+    }, [nameList, isEncrypted]);
+
     return <ResultsContainer />;
 };

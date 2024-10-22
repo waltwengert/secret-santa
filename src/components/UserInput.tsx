@@ -66,6 +66,7 @@ const InputButton = styled(BaseButton)`
 
 export const UserInput = () => {
     const [encrypted, setEncrypted] = useState(false);
+    const [nameList, setNameList] = useState<string[]>([]);
 
     const onToggleEncrypted = () => {
         setEncrypted(!encrypted);
@@ -76,7 +77,7 @@ export const UserInput = () => {
     }, [encrypted]);
 
     const onAdd = () => {
-        console.debug('Add');
+        setNameList([...nameList]);
     };
 
     const onShuffle = () => {
@@ -103,7 +104,7 @@ export const UserInput = () => {
                     <InputButton onClick={onReveal}>Reveal All</InputButton>
                 </ButtonContainer>
             </ButtonWrapper>
-            <Results />
+            <Results nameList={nameList} isEncrypted={encrypted} />
         </>
     );
 };
