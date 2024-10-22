@@ -75,8 +75,7 @@ export const UserInput = () => {
     'Reveal all' | 'Hide all'
     >('Reveal all');
 
-    const onAdd = () => {
-        setNameList([...nameList]);
+    const shuffleNameList = () => {
         if (encrypted) {
             setShuffledNameList(encryptStringArray(shuffle([...nameList])));
         } else {
@@ -84,12 +83,13 @@ export const UserInput = () => {
         }
     };
 
+    const onAdd = () => {
+        setNameList([...nameList]);
+        shuffleNameList();
+    };
+
     const onShuffle = () => {
-        if (encrypted) {
-            setShuffledNameList(encryptStringArray(shuffle([...nameList])));
-        } else {
-            setShuffledNameList(shuffle([...nameList]));
-        }
+        shuffleNameList();
     };
 
     const onToggleEncrypted = () => {
