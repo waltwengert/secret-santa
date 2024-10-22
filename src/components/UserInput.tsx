@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { BaseButton } from '../lib/ui/Button';
@@ -71,6 +71,10 @@ export const UserInput = () => {
     const [encrypted, setEncrypted] = useState(false);
     const [revealed, setRevealed] = useState(false);
 
+    const [revealButtonText, setRevealButtonText] = useState<
+    'Reveal all' | 'Hide all'
+    >('Reveal all');
+
     const onAdd = () => {
         setNameList([...nameList]);
         if (encrypted) {
@@ -97,6 +101,14 @@ export const UserInput = () => {
         setRevealed(!revealed);
     };
 
+    useEffect(() => {
+        if (revealed) {
+            setRevealButtonText('Hide all');
+        } else {
+            setRevealButtonText('Reveal all');
+        }
+    }, [revealed]);
+
     return (
         <>
             <InputWrapper>
@@ -110,7 +122,9 @@ export const UserInput = () => {
                 <ButtonContainer>
                     <InputButton onClick={onAdd}>Add</InputButton>
                     <InputButton onClick={onShuffle}>Shuffle</InputButton>
-                    <InputButton onClick={onReveal}>Reveal All</InputButton>
+                    <InputButton onClick={onReveal}>
+                        {revealButtonText}
+                    </InputButton>
                 </ButtonContainer>
             </ButtonWrapper>
             <Results

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useEffect } from 'react';
 
 import { MOBILE_DEVICE_WIDTH } from '../lib/APP_CONST';
 
@@ -38,15 +37,13 @@ export const Results = ({
     shuffledNameList,
     revealed
 }: ResultsProps) => {
-    useEffect(() => {
-        console.debug('Revealed: ', revealed);
-    }, [revealed]);
-
     const names = nameList.map(name => (
         <Name key={`name-${name}`}>{name}</Name>
     ));
     const shuffledNames = shuffledNameList.map(name => (
-        <Name key={`name-${name}`}>{name}</Name>
+        <Name key={`name-${name}`} hidden={!revealed}>
+            {name}
+        </Name>
     ));
 
     return (
