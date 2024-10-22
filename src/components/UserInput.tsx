@@ -5,6 +5,7 @@ import { BaseButton } from '../lib/ui/Button';
 import { BaseCheckbox } from '../lib/ui/Checkbox';
 import { BaseInput } from '../lib/ui/Input';
 import { MOBILE_DEVICE_WIDTH } from '../lib/APP_CONST';
+import { Results } from './Results';
 
 const InputWrapper = styled.div`
     flex: 0 1 auto;
@@ -63,26 +64,7 @@ const InputButton = styled(BaseButton)`
     background-color: #bb2528;
 `;
 
-export const ResultsContainer = styled.div`
-    flex: 1 1 auto;
-
-    background-color: #165b33;
-    overflow: auto;
-
-    margin: 20px auto 40px;
-
-    width: 50vw;
-
-    @media (max-width: ${MOBILE_DEVICE_WIDTH}px) {
-        width: 90vw;
-    }
-`;
-
-const Results = () => {
-    return <ResultsContainer />;
-};
-
-export const InputAndResults = () => {
+export const UserInput = () => {
     const [encrypted, setEncrypted] = useState(false);
 
     const onToggleEncrypted = () => {
