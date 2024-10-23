@@ -18,6 +18,10 @@ const CheckboxWrapper = styled.label`
     user-select: none;
 `;
 
+const StyledCheckbox = styled.input`
+    margin-right: 10px;
+`;
+
 interface CheckboxProps {
     labelText: string
     onChange: () => void
@@ -26,7 +30,7 @@ interface CheckboxProps {
 export const BaseCheckbox = ({ labelText, onChange }: CheckboxProps) => {
     return (
         <CheckboxWrapper>
-            <input type="checkbox" onChange={onChange} />
+            <StyledCheckbox type="checkbox" onChange={onChange} />
             {labelText}
         </CheckboxWrapper>
     );
