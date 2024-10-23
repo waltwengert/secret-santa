@@ -69,11 +69,11 @@ export const UserInput = () => {
     const [nameList, setNameList] = useState<string[]>(['a', 'b', 'c', 'd']);
     const [shuffledNameList, setShuffledNameList] = useState<string[]>([]);
     const [encrypted, setEncrypted] = useState(false);
-    const [revealed, setRevealed] = useState(false);
+    const [hidden, setHidden] = useState(false);
 
-    const [revealButtonText, setRevealButtonText] = useState<
-    'Reveal all' | 'Hide all'
-    >('Reveal all');
+    const [hideButtonText, setHideButtonText] = useState<
+    'Hide all' | 'Reveal all'
+    >('Hide all');
 
     const shuffleNameList = () => {
         if (encrypted) {
@@ -97,17 +97,17 @@ export const UserInput = () => {
         setShuffledNameList(encryptStringArray(shuffledNameList));
     };
 
-    const onReveal = () => {
-        setRevealed(!revealed);
+    const onHide = () => {
+        setHidden(!hidden);
     };
 
     useEffect(() => {
-        if (revealed) {
-            setRevealButtonText('Hide all');
+        if (hidden) {
+            setHideButtonText('Reveal all');
         } else {
-            setRevealButtonText('Reveal all');
+            setHideButtonText('Hide all');
         }
-    }, [revealed]);
+    }, [hidden]);
 
     return (
         <>
@@ -122,15 +122,13 @@ export const UserInput = () => {
                 <ButtonContainer>
                     <InputButton onClick={onAdd}>Add</InputButton>
                     <InputButton onClick={onShuffle}>Shuffle</InputButton>
-                    <InputButton onClick={onReveal}>
-                        {revealButtonText}
-                    </InputButton>
+                    <InputButton onClick={onHide}>{hideButtonText}</InputButton>
                 </ButtonContainer>
             </ButtonWrapper>
             <Results
                 nameList={nameList}
                 shuffledNameList={shuffledNameList}
-                revealed={revealed}
+                hidden={hidden}
             />
         </>
     );

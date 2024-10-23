@@ -29,19 +29,19 @@ const Name = styled.p`
 interface ResultsProps {
     nameList: string[]
     shuffledNameList: string[]
-    revealed: boolean
+    hidden: boolean
 }
 
 export const Results = ({
     nameList,
     shuffledNameList,
-    revealed
+    hidden
 }: ResultsProps) => {
     const names = nameList.map(name => (
         <Name key={`name-${name}`}>{name}</Name>
     ));
     const shuffledNames = shuffledNameList.map(name => (
-        <Name key={`name-${name}`} hidden={!revealed}>
+        <Name key={`name-${name}`} hidden={hidden}>
             {name}
         </Name>
     ));
