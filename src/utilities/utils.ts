@@ -1,3 +1,5 @@
+import { CIPHER_KEY } from './consts';
+
 /**
  * Takes an array and shuffles it.
  * @param array Array to be shuffled.
@@ -20,32 +22,30 @@ export function shuffle<T>(array: T[]): T[] {
 }
 
 /**
- * Takes a string and encrypts it.
+ * Takes a string and encrypts it using a Caesar cipher.
  * @param stringToEncrypt String to encrypt.
  * @returns Encrypted string.
  */
 export function encrypt(stringToEncrypt: string): string {
-    let encryptedParticipant = '';
-    const cipherKey = 13;
+    let encryptedString = '';
 
     for (let i = 0; i < stringToEncrypt.length; i++) {
-        // let charCode = participant.charAt(i).charCodeAt();
         let charCode = stringToEncrypt.charCodeAt(i);
 
         // lower case ASCII alphabet is 97(a) to 122(z)
         // TODO: make this work for upper case alphabet too
-        if (charCode + cipherKey > 122) {
+        if (charCode + CIPHER_KEY > 122) {
             // start at beginning of alphabet
-            charCode += cipherKey - 26;
+            charCode += CIPHER_KEY - 26;
         } else {
-            charCode += cipherKey;
+            charCode += CIPHER_KEY;
         }
 
         const char = String.fromCharCode(charCode);
-        encryptedParticipant += char;
+        encryptedString += char;
     }
 
-    return encryptedParticipant;
+    return encryptedString;
 }
 
 /**
@@ -56,3 +56,32 @@ export function encrypt(stringToEncrypt: string): string {
 export function encryptStringArray(arrayToEncrypt: string[]): string[] {
     return arrayToEncrypt.map(stringToEncrypt => encrypt(stringToEncrypt));
 }
+
+/**
+ * Takes an encrypted string and decrypts it using a Caesar cipher.
+ * @param stringToDecrypt Encrypted string to decrypt.
+ * @returns Decrypted string.
+ */
+export function decrypt(stringToDecrypt: string): string {
+    let decryptedString = '';
+
+    for (let i = 0; i < stringToDecrypt.length; i++) {
+        let charCode = stringToDecrypt.charCodeAt(i);
+
+        // lower case ASCII alphabet is 97(a) to 122(z)
+        // TODO: make this work for upper case alphabet too
+        if (charCode - CIPHER_KEY < 97) {
+            // start at beginning of alphabet
+            charCode -= CIPHER_KEY - 26;
+        } else {
+            charCode -= CIPHER_KEY;
+        }
+
+        const char = String.fromCharCode(charCode);
+        decryptedString += char;
+    }
+
+    return decryptedString;
+}
+
+// TOOD: function that calls above but ensures that partners are not assigned to each other
