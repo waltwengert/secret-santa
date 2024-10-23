@@ -2,6 +2,7 @@ import { useLoaderData } from 'react-router-dom';
 import styled from 'styled-components';
 
 import App from '../App';
+import { decrypt } from '../utilities/utils';
 
 const StyledResults = styled.p`
     padding: 10px;
@@ -22,7 +23,12 @@ export const Decrypter = () => {
 
     return (
         <App>
-            <StyledResults>You have: {data.decryptionText}</StyledResults>
+            <StyledResults>
+                You have:{' '}
+                {decrypt(
+                    data.decryptionText ?? 'Error, try again or contact Walt'
+                )}
+            </StyledResults>
         </App>
     );
 };
