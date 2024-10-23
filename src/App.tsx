@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import React from 'react';
 
 import { Header } from './components/Header';
-import { UserInput } from './components/UserInput';
 
 const AppWrapper = styled.div`
     background-color: #146b3a;
@@ -14,11 +14,15 @@ const AppWrapper = styled.div`
     flex-direction: column;
 `;
 
-const App = () => {
+interface AppProps {
+    children: React.ReactNode
+}
+
+const App = ({ children }: AppProps) => {
     return (
         <AppWrapper>
             <Header />
-            <UserInput />
+            {children}
         </AppWrapper>
     );
 };
