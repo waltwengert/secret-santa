@@ -6,16 +6,10 @@ import { CIPHER_KEY } from './consts';
  * @returns Shuffled array.
  */
 export function shuffle<T>(array: T[]): T[] {
-    let currentIndex = array.length;
+    for (let i = 0; i < array.length; i++) {
+        const randomIndex = Math.floor(Math.random() * array.length);
 
-    while (currentIndex !== 0) {
-        const randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
-
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex],
-            array[currentIndex]
-        ];
+        [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
     }
 
     return array;
@@ -83,5 +77,3 @@ export function decrypt(stringToDecrypt: string): string {
 
     return decryptedString;
 }
-
-// TOOD: function that calls above but ensures that partners are not assigned to each other
