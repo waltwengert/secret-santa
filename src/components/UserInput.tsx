@@ -90,7 +90,6 @@ export const UserInput = () => {
 
     const onAdd = () => {
         setNameList([...nameList, currentText]);
-        shuffleNameList();
         setCurrentText('');
     };
 
