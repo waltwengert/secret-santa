@@ -139,6 +139,7 @@ export const UserInput = () => {
                 nameList={nameList}
                 shuffledNameList={shuffledNameList}
                 hidden={hidden}
+                encrypted={encrypted}
             />
         </>
     );

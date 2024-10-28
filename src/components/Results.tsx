@@ -22,27 +22,44 @@ const NamesContainer = styled.div`
     display: inline-block;
 `;
 
-const Name = styled.p`
-    padding: 10px;
+const Name = styled.div`
+    padding: 20px 10px;
+    color: white;
+`;
+
+const ResultText = styled.div`
+    color: #f8b229;
+`;
+
+const ResultLink = styled.a`
+    color: #f8b229;
 `;
 
 interface ResultsProps {
     nameList: string[]
     shuffledNameList: string[]
     hidden: boolean
+    encrypted: boolean
 }
 
 export const Results = ({
     nameList,
     shuffledNameList,
-    hidden
+    hidden,
+    encrypted
 }: ResultsProps) => {
     const names = nameList.map(name => (
         <Name key={`name-${name}`}>{name}</Name>
     ));
     const shuffledNames = shuffledNameList.map(name => (
         <Name key={`shuffledName-${name}`} hidden={hidden}>
-            {name}
+            {encrypted
+                ? (
+                    <ResultLink href={`/#/decrypter/${name}`}>{name}</ResultLink>
+                )
+                : (
+                    <ResultText>{name}</ResultText>
+                )}
         </Name>
     ));
 
