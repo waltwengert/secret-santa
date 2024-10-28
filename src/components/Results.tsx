@@ -41,7 +41,7 @@ export const Results = ({
         <Name key={`name-${name}`}>{name}</Name>
     ));
     const shuffledNames = shuffledNameList.map(name => (
-        <Name key={`name-${name}`} hidden={hidden}>
+        <Name key={`shuffledName-${name}`} hidden={hidden}>
             {name}
         </Name>
     ));
