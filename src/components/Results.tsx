@@ -55,7 +55,9 @@ export const Results = ({
         <Name key={`shuffledName-${name}`} hidden={hidden}>
             {encrypted
                 ? (
-                    <ResultLink href={`/#/decrypter/${name}`}>{name}</ResultLink>
+                    <ResultLink href={`/secret-santa/#/decrypter/${name}`}>
+                        {name}
+                    </ResultLink>
                 )
                 : (
                     <ResultText>{name}</ResultText>
