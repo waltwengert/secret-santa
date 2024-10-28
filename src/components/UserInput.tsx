@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import { BaseButton } from '../lib/ui/Button';
@@ -66,10 +66,11 @@ const InputButton = styled(BaseButton)`
 `;
 
 export const UserInput = () => {
-    const [nameList, setNameList] = useState<string[]>(['a', 'b', 'c', 'd']);
+    const [nameList, setNameList] = useState<string[]>([]);
     const [shuffledNameList, setShuffledNameList] = useState<string[]>([]);
     const [encrypted, setEncrypted] = useState(false);
     const [hidden, setHidden] = useState(false);
+    const [currentText, setCurrentText] = useState('');
 
     const [hideButtonText, setHideButtonText] = useState<
     'Hide all' | 'Reveal all'
@@ -83,9 +84,14 @@ export const UserInput = () => {
         }
     };
 
+    const handleTextInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setCurrentText(e.target.value);
+    };
+
     const onAdd = () => {
-        setNameList([...nameList]);
+        setNameList([...nameList, currentText]);
         shuffleNameList();
+        setCurrentText('');
     };
 
     const onShuffle = () => {
@@ -112,7 +118,12 @@ export const UserInput = () => {
     return (
         <>
             <InputWrapper>
-                <ParticipantInput placeholder="Name" autoFocus={true} />
+                <ParticipantInput
+                    placeholder="Name"
+                    autoFocus={true}
+                    value={currentText}
+                    onChange={handleTextInputChange}
+                />
                 <EncryptedCheckbox
                     labelText="Encrypted?"
                     onChange={onToggleEncrypted}

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledInput = styled.input`
+export const BaseInput = styled.input`
     font-size: 18px;
     padding-left: 10px;
     padding-top: 5px;
@@ -14,19 +14,3 @@ const StyledInput = styled.input`
     margin-right: auto;
     margin-left: auto;
 `;
-
-interface InputProps {
-    placeholder?: string
-    type?: string
-    autoFocus?: boolean
-}
-
-export const BaseInput = ({ placeholder, type, autoFocus }: InputProps) => {
-    return (
-        <StyledInput
-            placeholder={placeholder}
-            type={type}
-            autoFocus={autoFocus}
-        />
-    );
-};
