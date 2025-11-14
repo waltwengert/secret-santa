@@ -6,7 +6,11 @@ import { BaseCheckbox } from '../lib/ui/Checkbox';
 import { BaseInput } from '../lib/ui/Input';
 import { MOBILE_DEVICE_WIDTH } from '../lib/APP_CONST';
 import { Results } from './Results';
-import { encryptStringArray, shuffle } from '../utilities/utils';
+import {
+    encryptStringArray,
+    shuffle,
+    decryptStringArray
+} from '../utilities/utils';
 
 const InputWrapper = styled.div`
     flex: 0 1 auto;
@@ -76,30 +80,37 @@ export const UserInput = () => {
     'Hide all' | 'Reveal all'
     >('Hide all');
 
-    const shuffleNameList = () => {
-        if (encrypted) {
-            setShuffledNameList(encryptStringArray(shuffle([...nameList])));
-        } else {
-            setShuffledNameList(shuffle([...nameList]));
-        }
-    };
-
     const handleTextInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setCurrentText(e.target.value);
     };
 
     const onAdd = () => {
-        setNameList([...nameList, currentText]);
+        const clean = currentText.trim().toLowerCase();
+        if (clean.length > 0) {
+            setNameList([...nameList, clean]);
+        }
         setCurrentText('');
     };
 
     const onShuffle = () => {
-        shuffleNameList();
+        const shuffled = shuffle([...nameList]);
+        if (encrypted) {
+            setShuffledNameList(encryptStringArray(shuffled));
+        } else {
+            setShuffledNameList(shuffled);
+        }
     };
 
     const onToggleEncrypted = () => {
-        setEncrypted(!encrypted);
-        setShuffledNameList(encryptStringArray(shuffledNameList));
+        const next = !encrypted;
+        setEncrypted(next);
+        if (next) {
+            // Encrypt whatever is currently in shuffledNameList.
+            setShuffledNameList(encryptStringArray(shuffledNameList));
+        } else {
+            // Decrypt tokens back to plain names.
+            setShuffledNameList(decryptStringArray(shuffledNameList));
+        }
     };
 
     const onHide = () => {
